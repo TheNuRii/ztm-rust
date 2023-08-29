@@ -11,5 +11,15 @@
 // * Use a function to print the messages
 // * Use a match expression to determine which message
 //   to print
+fn print_message(gt_100: bool) {
+    match gt_100 {
+        true => println!("its big"),
+        false => println!("its small"),
+    }
+}
 
-fn main() {}
+fn main() {
+    let varible: i32 = 10;
+    let is_gt_100 = varible > 100;
+    print_message(is_gt_100);
+}
