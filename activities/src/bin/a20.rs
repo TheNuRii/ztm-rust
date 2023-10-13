@@ -22,5 +22,31 @@
 // * Use a match expression to convert the user input into the power state enum
 // * The program should be case-insensitive (the user should be able to type
 //   Reboot, reboot, REBOOT, etc.)
+use std::io;
+enum Options {
+    Off,
+    Sleep,
+    Reboot,
+    Shutdown,
+    Hiberbate,
+}
 
-fn main() {}
+impl Options {
+    fn match_power_message (&self)  {
+        match self {
+            Self::Off => println!("Off"),
+            Self::Sleep => println!("I am going to sleep"),
+            Self::Reboot => println!("Rebooting"),
+            Self::Shutdown => println!("Shuting down"),
+            Self::Hiberbate => println!("Going to hiberbate"),
+            _ => println!()
+        }
+    }
+}
+
+fn main() {
+    let mut user_input: String =  String::new();
+    io::stdin().read_line(&mut user_input).expect("Failed to read the line");
+    user_input = user_input.to_lowercase();
+    println!("{:?}", user_input);
+}
